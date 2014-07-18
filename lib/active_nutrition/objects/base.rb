@@ -22,7 +22,7 @@ module ActiveNutrition
       end
 
       def self.wrap_all(objs)
-        objs.map { |obj| self.wrap obj }
+        objs.map { |obj| new obj }
       end
     end
   end
