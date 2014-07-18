@@ -21,7 +21,7 @@ module ActiveNutrition
       end
 
       def execute
-        @usda_map.each_pair do |model_const, data|
+        Hash(@usda_map.to_a.reverse).each_pair do |model_const, data|
           if ActiveNutrition::Models.const_defined?(model_const.to_sym)
             model = ActiveNutrition::Models.const_get(model_const.to_sym)
             cur_file = File.join(@zip_dir, data["file_name"])
@@ -53,7 +53,7 @@ module ActiveNutrition
       end
 
       def reset_db
-        @usda_map.reverse.each_key do |model_const|
+        @usda_map.each_key do |model_const|
           if ActiveNutrition::Models.const_defined?(model_const.to_sym)
             ActiveNutrition::Models.const_get(model_const.to_sym).delete_all
           end
