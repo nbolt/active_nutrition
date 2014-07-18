@@ -2,7 +2,7 @@
 
 module ActiveNutrition
   module Objects
-    class Base < ActiveRecord::Base
+    class Base
       attr_reader :attributes, :base_model
 
       def initialize(base_model)
