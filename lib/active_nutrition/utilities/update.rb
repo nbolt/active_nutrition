@@ -21,7 +21,7 @@ module ActiveNutrition
       end
 
       def execute
-        Hash(@usda_map.to_a.reverse).each_pair do |model_const, data|
+        @usda_map.to_a.reverse.to_h.each_pair do |model_const, data|
           if ActiveNutrition::Models.const_defined?(model_const.to_sym)
             model = ActiveNutrition::Models.const_get(model_const.to_sym)
             cur_file = File.join(@zip_dir, data["file_name"])
