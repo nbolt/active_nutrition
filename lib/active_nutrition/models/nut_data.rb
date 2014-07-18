@@ -8,7 +8,7 @@ module ActiveNutrition
 
       alias_attribute :value, :nutr_val
 
-      belongs_to :definition, :class_name => "activenutrition::models::nutrdef", :foreign_key => "nutr_no", :primary_key => "nutr_no"
+      belongs_to :definition, :class_name => "ActiveNutrition::Models::NutrDef", :foreign_key => "nutr_no", :primary_key => "nutr_no"
       validates :ndb_no, :uniqueness => { :scope => [:nutr_no] }
       validates :nutr_no, :uniqueness => { :scope => [:ndb_no] }
 

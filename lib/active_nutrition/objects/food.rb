@@ -9,7 +9,7 @@ module ActiveNutrition
                      :manufacturers_name => :manufacname,
                      :survey => :survey,
                      :scientific_name => :sciname,
-                     :fat_factor => :fat_factoR,
+                     :fat_factor => :fat_factor,
                      :protein_factor => :pro_factor }
 
       METHOD_MAP.each_pair do |method, attr_name|
