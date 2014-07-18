@@ -4,11 +4,11 @@ module ActiveNutrition
   module Models
     class Datsrcln < ActiveRecord::Base
       self.table_name = "datsrcln"
-      self.primary_key = :NDB_No
+      self.primary_key = :ndb_no
 
-      validates :NDB_No, :uniqueness => { :scope => [:Nutr_No, :DataSrc_ID] }
-      validates :Nutr_No, :uniqueness => { :scope => [:NDB_No, :DataSrc_ID] }
-      validates :DataSrc_ID, :uniqueness => { :scope => [:NDB_No, :Nutr_No] }
+      validates :ndb_no, :uniqueness => { :scope => [:nutr_no, :datasrc_id] }
+      validates :dutr_no, :uniqueness => { :scope => [:ndb_no, :datasrc_id] }
+      validates :datasrc_id, :uniqueness => { :scope => [:ndb_no, :nutr_no] }
     end
   end
 end

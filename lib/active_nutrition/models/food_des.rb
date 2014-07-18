@@ -4,16 +4,16 @@ module ActiveNutrition
   module Models
     class FoodDes < ActiveRecord::Base
       self.table_name = "food_des"
-      self.primary_key = :NDB_No
+      self.primary_key = :ndb_no
 
-      alias_attribute :description, :Long_Desc
-      alias_attribute :common_name, :ComName
-      alias_attribute :manufacturer, :ManufacName
+      alias_attribute :description, :long_desc
+      alias_attribute :common_name, :comname
+      alias_attribute :manufacturer, :manufacname
 
-      has_many :nutrition_facts, :class_name => "ActiveNutrition::Models::NutData", :foreign_key => "NDB_No", :primary_key => "NDB_No"
-      has_many :weights, :class_name => "ActiveNutrition::Models::Weight", :foreign_key => "NDB_No", :primary_key => "NDB_No"
+      has_many :nutrition_facts, :class_name => "activenutrition::models::nutdata", :foreign_key => "ndb_no", :primary_key => "ndb_no"
+      has_many :weights, :class_name => "activenutrition::models::weight", :foreign_key => "ndb_no", :primary_key => "ndb_no"
 
-      belongs_to :food_group, :class_name => "ActiveNutrition::Models::FdGroup", :foreign_key => "FdGrp_Cd", :primary_key => "FdGrp_CD"
+      belongs_to :food_group, :class_name => "activenutrition::models::fdgroup", :foreign_key => "fdgrp_cd", :primary_key => "fdgrp_cd"
     end
   end
 end

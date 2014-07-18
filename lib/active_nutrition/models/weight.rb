@@ -4,14 +4,14 @@ module ActiveNutrition
   module Models
     class Weight < ActiveRecord::Base
       self.table_name = "weight"
-      self.primary_key = :NDB_No
+      self.primary_key = :ndb_no
 
-      validates :NDB_No, :uniqueness => { :scope => [:Seq] }
-      validates :Seq, :uniqueness => { :scope => [:NDB_No] }
+      validates :ndb_no, :uniqueness => { :scope => [:seq] }
+      validates :seq, :uniqueness => { :scope => [:ndb_no] }
 
-      alias_attribute :amount, :Amount
-      alias_attribute :grams, :Gm_Wgt
-      alias_attribute :measurement, :Msre_Desc
+      alias_attribute :amount, :amount
+      alias_attribute :grams, :gm_wgt
+      alias_attribute :measurement, :msre_desc
     end
   end
 end
