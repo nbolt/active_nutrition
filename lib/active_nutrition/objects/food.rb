@@ -3,14 +3,14 @@
 module ActiveNutrition
   module Objects
     class Food < Base
-      METHOD_MAP = { :name => :Long_Desc,
-                     :ndb_number => :NDB_No,
-                     :common_name => :ComName,
-                     :manufacturers_name => :ManufacName,
-                     :survey => :Survey,
-                     :scientific_name => :SciName,
-                     :fat_factor => :Fat_Factor,
-                     :protein_factor => :Pro_Factor }
+      METHOD_MAP = { :name => :long_desc,
+                     :ndb_number => :ndb_no,
+                     :common_name => :comname,
+                     :manufacturers_name => :manufacname,
+                     :survey => :survey,
+                     :scientific_name => :sciname,
+                     :fat_factor => :fat_factoR,
+                     :protein_factor => :pro_factor }
 
       METHOD_MAP.each_pair do |method, attr_name|
         define_method(method) { attributes[attr_name.to_s] }

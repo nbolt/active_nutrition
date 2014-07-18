@@ -3,6 +3,9 @@
 module ActiveNutrition
   module Models
     class FoodDes < ActiveRecord::Base
+      include PgSearch
+      pg_search_scope :search, against: :long_desc
+
       self.table_name = "food_des"
       self.primary_key = :ndb_no
 
