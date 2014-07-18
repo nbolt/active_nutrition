@@ -35,7 +35,9 @@ module ActiveNutrition
               data["attribute_order"].each_with_index do |field, index|
                 # update each attribute by explicitly calling the attr= method, just in case
                 # there are custom methods in the model class
-                new_record.write_attribute(field.to_sym, values[index].encode('UTF-8'))
+                value = values[index]
+                value = value.encode('UTF-8') if value.class == String
+                new_record.write_attribute(field.to_sym, value)
               end
 
               new_record.save!
