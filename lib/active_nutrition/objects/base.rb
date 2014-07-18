@@ -2,7 +2,7 @@
 
 module ActiveNutrition
   module Objects
-    class Base
+    class Base < ActiveRecord::Base
       attr_reader :attributes, :base_model
 
       def initialize(base_model)
@@ -19,6 +19,10 @@ module ActiveNutrition
         else
           new(obj)
         end
+      end
+
+      def self.wrap_all(objs)
+        objs.map { |obj| self.wrap obj }
       end
     end
   end
