@@ -32,11 +32,11 @@ module ActiveNutrition
 
   class << self
     def migrate
-      current_migrations = Migration.find(:all).map(&:sequence_no)
+      current_migrations = Migration.all.map(&:sequence_no)
     rescue ActiveRecord::StatementInvalid => e
       ActiveNutrition::Migrations::MigrationsTable.up
       Migration.create(:sequence_no => 1)
-      current_migrations = Migration.find(:all).map(&:sequence_no)
+      current_migrations = Migration.all.map(&:sequence_no)
     ensure
       next_migrations = migrations.reject { |file| (current_migrations || []).include?(File.basename(file)[0..11].to_i) }.sort
       next_migrations.each do |file|
