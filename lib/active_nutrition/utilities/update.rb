@@ -66,13 +66,13 @@ module ActiveNutrition
       end
 
       def download
-        unless File.file?(File.join(DATA_DIR, @file))
+        #unless File.file?(File.join(DATA_DIR, @file))
           FileUtils.mkdir_p(DATA_DIR)
           File.open(File.join(DATA_DIR, @file), "wb") do |f|
             f.sync = true
             f.write(open("#{BASE_URL}#{@path}#{@file}").read)
           end
-        end
+        #end
       end
 
       def unzip
