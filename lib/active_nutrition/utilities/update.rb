@@ -53,7 +53,7 @@ module ActiveNutrition
       end
 
       def reset_db
-        @usda_map.each_key do |model_const|
+        @usda_map.reverse.each_key do |model_const|
           if ActiveNutrition::Models.const_defined?(model_const.to_sym)
             ActiveNutrition::Models.const_get(model_const.to_sym).delete_all
           end
